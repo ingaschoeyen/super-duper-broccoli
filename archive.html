@@ -1,0 +1,28 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+---
+<div class="page-header">
+  <h1>Archive</h1>
+</div>
+
+<p>A chronological index of all posts on this site.</p>
+
+{% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+{% for year in postsByYear %}
+<div class="archive-year">
+  <h2>{{ year.name }}</h2>
+  <ul class="archive-list">
+    {% for post in year.items %}
+    <li>
+      <span class="archive-date">{{ post.date | date: "%b %-d" }}</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<p>No posts yet — check back soon!</p>
+{% endfor %}
