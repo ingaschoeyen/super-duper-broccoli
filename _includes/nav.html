@@ -1,0 +1,18 @@
+<nav class="site-nav">
+  <div class="wrapper">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <ul class="nav-links">
+      <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a></li>
+      <li><a href="{{ '/about' | relative_url }}"{% if page.url contains '/about' %} class="active"{% endif %}>About</a></li>
+      <li class="nav-dropdown">
+        <a href="{{ '/works/' | relative_url }}"{% if page.url contains '/works' %} class="active"{% endif %}>Works</a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ '/works/research' | relative_url }}">Research</a></li>
+          <li><a href="{{ '/works/political' | relative_url }}">Political</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog' %} class="active"{% endif %}>Blog</a></li>
+      <li><a href="{{ '/archive' | relative_url }}"{% if page.url contains '/archive' %} class="active"{% endif %}>Archive</a></li>
+    </ul>
+  </div>
+</nav>
